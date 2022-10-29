@@ -19,6 +19,6 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 #st.multiselect("Pick some fruits:",list(my_fruit_list.index))
 #st.dataframe(my_fruit_list)
 st.dataframe(fruits_to_show)
-#step 4 learning 
+#step 4 learning
 
 
