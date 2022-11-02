@@ -26,8 +26,10 @@ st.dataframe(fruits_to_show)
 #st.text(fruityvice_response)
 #new section to disply fuitwise API response
 st.header('Fruityvice Fruit Advise')
-fruit_choice=st.input_text('what fruit would you like information about?','kiwi')
-st.write('the user entered',fruit_choice)
+#fruit_choice=st.input_text('what fruit would you like information about?','kiwi')
+#st.write('the user entered',fruit_choice)
+fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
+streamlit.write('The user entered ', fruit_choice)
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 # it reads the data from the api in json format into pandas dataframe
 fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
