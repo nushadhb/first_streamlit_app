@@ -25,7 +25,7 @@ st.dataframe(fruits_to_show)
 #new section to disply fuitwise API response
 
 st.header('Fruityvice Fruit Advise')
-fruit_choice = streamlit.text_input('What fruit would you like information about?)
+fruit_choice = streamlit.text_input('What fruit would you like information about?')
 streamlit.write('The user entered ', fruit_choice)
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 #fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
