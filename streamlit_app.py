@@ -24,7 +24,7 @@ st.dataframe(fruits_to_show)
 #step 4 learning
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 st.text(fruityvice_response)
-st.text('fruit wise fruit advise')
+st.text('Fruityvice Fruit Advise')
 # it reads the data from the api in json format into pandas dataframe
 fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 # it loads the data into strealit dataframe 
