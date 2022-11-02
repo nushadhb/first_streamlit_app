@@ -22,10 +22,18 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 #st.dataframe(my_fruit_list)
 st.dataframe(fruits_to_show)
 #step 4 learning
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
+#fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
 st.text(fruityvice_response)
-st.text('Fruityvice Fruit Advise')
+st.header('Fruityvice Fruit Advise')
+
 # it reads the data from the api in json format into pandas dataframe
 fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 # it loads the data into strealit dataframe 
 st.dataframe(fruityvice_normalized)
+#new section to disply fuitwise API response
+fruit_choice=st.input_text('what fruit would you like information about?','kiwi')
+
+
+st.write('the user entered',fruit_choice)
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+st.text(fruityvice_response)
