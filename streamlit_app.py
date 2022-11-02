@@ -22,7 +22,7 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 #st.dataframe(my_fruit_list)
 st.dataframe(fruits_to_show)
 #step 4 learning
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
 st.text(fruityvice_response)
 st.text('Fruityvice Fruit Advise')
 # it reads the data from the api in json format into pandas dataframe
