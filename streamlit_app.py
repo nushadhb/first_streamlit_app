@@ -7,7 +7,7 @@ import snowflake.connector
 
 def sf_connect():
      my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
-     retrun my_cnx
+     return my_cnx
 
 #step1 learning..
 st.title('My Parents New Healthy Dinner')
