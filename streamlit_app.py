@@ -58,8 +58,7 @@ sql_query="select * from pc_rivery_db.public.fruit_load_list"
 #my_cur.execute("select * from pc_rivery_db.public.fruit_load_list")
 with my_cnx as sf_conn:
      my_data_row=pd.read_sql(sql_query,sf_conn)
-     st.dataframe(my_data_row)
-     my_data_row.set_index('FRUIT_NAME')
+     #st.dataframe(my_data_row)
 #my_data_row = my_cur.fetchall()
 st.text("Hello from Snowflake:")
 st.text("The fruit load list contains:")
