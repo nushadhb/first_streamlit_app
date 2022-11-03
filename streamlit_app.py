@@ -24,7 +24,7 @@ def  get_fruityvice_data(this_fruit_choice):
 def insert_row_snowflake(new_fruit):
      my_cnx = sf_connect()
      my_cur = my_cnx.cursor()
-     my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values(new_fruit)")
+     my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values(" + new_fruit +")")
      return "thanks for adding new fruit " + new_fruit
 #step1 learning..
 st.title('My Parents New Healthy Dinner')
