@@ -48,7 +48,7 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_c
 fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 # it loads the data into strealit dataframe 
 st.dataframe(fruityvice_normalized)
-
+st.stop()
 #my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
 page_refresh()
 my_cnx=sf_connect()
