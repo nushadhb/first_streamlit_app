@@ -79,8 +79,8 @@ st.dataframe(my_data_row)
 st.text("What fruit would you like to add?")
 add_my_fruit = st.text_input('Enter the fruit you wish to add?')
 if st.button('Add fruit to the list'):
-    back_frun_fuction=insert_row_snowflake(add_my_fruit)
-    st.text('Thanks for adding the fruit!',back_frun_fuction)
+    back_from_fuction=insert_row_snowflake(add_my_fruit)
+    st.write('back_from_fuction)
 
 #my_data_row = my_data_row.loc[fruits_add]
 #my_data_row=my_data_row[my_data_row['FRUIT_NAME'].isin([fruits_add])]
