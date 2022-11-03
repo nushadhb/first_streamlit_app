@@ -50,7 +50,7 @@ try:
         fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
         # it loads the data into strealit dataframe 
         st.dataframe(fruityvice_normalized)
- except URLError as e:
+except URLError as e:
         st.error(e)
 st.stop()
 #my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
