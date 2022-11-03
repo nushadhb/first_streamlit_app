@@ -47,14 +47,14 @@ sql_query="select * from pc_rivery_db.public.fruit_load_list"
 with my_cnx as sf_conn:
      my_data_row=pd.read_sql(sql_query,sf_conn)
      st.dataframe(my_data_row)
-     #my_data_row.set_index('FRUIT_NAME')
+     my_data_row.set_index('FRUIT_NAME')
 #my_data_row = my_cur.fetchall()
 st.text("Hello from Snowflake:")
 st.text("The fruit load list contains:")
 #st.text(my_data_row)
 st.dataframe(my_data_row)
 st.text("What fruit would you like to add?")
-fruits_add = st.multiselect("Fruits to add",list(list(my_data_row.iloc[:,0])),['banana'])
+fruits_add = st.multiselect("Fruits to add",list(list(my_data_row.index)),['banana'])
 #my_data_row = my_data_row.loc[fruits_add]
 my_data_row=my_data_row[my_data_row['FRUIT_NAME'].isin([fruits_add])]
 st.dataframe(my_data_row)
