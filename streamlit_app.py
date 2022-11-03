@@ -69,10 +69,12 @@ try:
 except URLError as e:
         st.error(e)
 #st.stop()
-my_data_row = get_the_fruit_load_list()
-st.text("The fruit load list contains:")
+#st.text("The fruit load list contains:")
+st.text("View our fruit list - Add your fvourite!")
+if st.button('Get Fruit List'):
+    my_data_row = get_the_fruit_load_list()
+    st.dataframe(my_data_row)
 #st.text(my_data_row)
-st.dataframe(my_data_row)
 st.text("What fruit would you like to add?")
 add_my_fruit = st.text_input('Enter the fruit you wish to add?')
 if st.button('Add fruit to the list'):
