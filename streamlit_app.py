@@ -45,7 +45,7 @@ fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 st.dataframe(fruityvice_normalized)
 
 #my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
-my_cnx=sf_connect
+my_cnx=sf_connect()
 #my_cur = my_cnx.cursor()
 #my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
 sql_query="select * from pc_rivery_db.public.fruit_load_list"
