@@ -38,9 +38,13 @@ fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 st.dataframe(fruityvice_normalized)
 
 my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
-my_cur = my_cnx.cursor()
+#my_cur = my_cnx.cursor()
 #my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
-my_cur.execute("select * from pc_rivery_db.public.fruit_load_list")
+sql_query="select * from pc_rivery_db.public.fruit_load_list"
+#my_cur.execute("select * from pc_rivery_db.public.fruit_load_list")
+with mmy_cnx as sf_conn:
+     df_result=pd.read_sql(sql_query,sf_conn)
+     st.dataframe(df_result)
 my_data_row = my_cur.fetchall()
 st.text("Hello from Snowflake:")
 st.text("The fruit load list contains:")
