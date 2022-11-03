@@ -26,6 +26,14 @@ def insert_row_snowflake(new_fruit):
      my_cur = my_cnx.cursor()
      my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values('" + new_fruit +"')")
      return "thanks for adding new fruit " + new_fruit
+def get_the_fruit_load_list():
+    my_cnx=sf_connect()
+    sql_query="select * from pc_rivery_db.public.fruit_load_list"
+    #my_cur.execute("select * from pc_rivery_db.public.fruit_load_list")
+    with my_cnx as sf_conn:
+        my_data_row=pd.read_sql(sql_query,sf_conn)
+    return my_data_row
+
 #step1 learning..
 st.title('My Parents New Healthy Dinner')
 st.header('Breakfast Menu')
@@ -61,18 +69,7 @@ try:
 except URLError as e:
         st.error(e)
 #st.stop()
-#my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
-#page_refresh()
-my_cnx=sf_connect()
-#my_cur = my_cnx.cursor()
-#my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
-sql_query="select * from pc_rivery_db.public.fruit_load_list"
-#my_cur.execute("select * from pc_rivery_db.public.fruit_load_list")
-with my_cnx as sf_conn:
-     my_data_row=pd.read_sql(sql_query,sf_conn)
-     #st.dataframe(my_data_row)
-#my_data_row = my_cur.fetchall()
-st.text("Hello from Snowflake:")
+my_data_row = get_the_fruit_load_list()
 st.text("The fruit load list contains:")
 #st.text(my_data_row)
 st.dataframe(my_data_row)
