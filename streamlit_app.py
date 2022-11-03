@@ -55,4 +55,5 @@ st.text("The fruit load list contains:")
 st.dataframe(my_data_row)
 st.text("What fruit would you like to add?")
 fruits_add = st.multiselect("Fruits to add",list(list(my_data_row.iloc[:,0])),['banana'])
-st.dataframe(fruits_add)
+my_data_row = my_data_row.loc[fruits_add]
+st.dataframe(my_data_row)
