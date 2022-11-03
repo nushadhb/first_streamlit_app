@@ -11,7 +11,7 @@ def sf_connect():
 def page_refresh():
      my_cnx = sf_connect()
      my_cur=my_cnx.cursor()
-     my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values(select 'from strealimit')")
+     my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values('from strealimit')")
 #step1 learning..
 st.title('My Parents New Healthy Dinner')
 st.header('Breakfast Menu')
@@ -20,6 +20,7 @@ st.text('🥗 Kale, Spinach & Rocket Smoothies')
 st.text('🐔  Hard-Boiled Free-Range Egg')
 st.text('🥑🍞 Avocodo Toast')
 st.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
+st.stop()
 #step2 learning.. , import pandas library and read csv file.
 my_fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 #st.dataframe(my_fruit_list)
