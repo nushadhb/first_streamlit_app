@@ -60,7 +60,7 @@ try:
         st.dataframe(back_from_function)
 except URLError as e:
         st.error(e)
-st.stop()
+#st.stop()
 #my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
 #page_refresh()
 my_cnx=sf_connect()
