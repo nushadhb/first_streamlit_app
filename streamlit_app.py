@@ -13,6 +13,14 @@ def page_refresh():
      my_cnx = sf_connect()
      my_cur=my_cnx.cursor()
      my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values('from strealimit')")
+def get_fruit_list(fruit_choice):
+     fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+     #fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
+     #st.text(fruityvice_response)
+     # it reads the data from the api in json format into pandas dataframe
+     fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
+     # it loads the data into strealit dataframe 
+     st.dataframe(fruityvice_normalized)
 #step1 learning..
 st.title('My Parents New Healthy Dinner')
 st.header('Breakfast Menu')
@@ -43,13 +51,7 @@ try:
     if not fruit_choice:
         st.error('Please select a fruit to get information.')
     else:
-        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-        #fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
-        #st.text(fruityvice_response)
-        # it reads the data from the api in json format into pandas dataframe
-        fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
-        # it loads the data into strealit dataframe 
-        st.dataframe(fruityvice_normalized)
+        get_fruit_list(fruit_choice)
 except URLError as e:
         st.error(e)
 st.stop()
