@@ -21,6 +21,11 @@ def  get_fruityvice_data(this_fruit_choice):
      fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
      # it loads the data into strealit dataframe 
      return fruityvice_normalized 
+def insert_row_snowflake(new_fruit):
+     my_cnx = sf_connect()
+     my_cur = my_cnx.cursor()
+     my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values(new_fruit)")
+     return "thanks for adding new fruit " + new_fruit
 #step1 learning..
 st.title('My Parents New Healthy Dinner')
 st.header('Breakfast Menu')
@@ -57,7 +62,7 @@ except URLError as e:
         st.error(e)
 st.stop()
 #my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
-page_refresh()
+#page_refresh()
 my_cnx=sf_connect()
 #my_cur = my_cnx.cursor()
 #my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
@@ -72,8 +77,12 @@ st.text("The fruit load list contains:")
 #st.text(my_data_row)
 st.dataframe(my_data_row)
 st.text("What fruit would you like to add?")
-fruits_add = st.text_input('Enter the fruit you wish to add?','jackfruit')
+add_my_fruit = st.text_input('Enter the fruit you wish to add?')
+if st.button('Add fruit to the list'):
+    back_frun_fuction=insert_row_snowflake(add_my_fruit)
+    st.text('Thanks for adding the fruit!',back_frun_fuction)
+
 #my_data_row = my_data_row.loc[fruits_add]
 #my_data_row=my_data_row[my_data_row['FRUIT_NAME'].isin([fruits_add])]
-st.write('Thanks for adding the fruit!',fruits_add)
+
 #st.dataframe(fruits_add)
