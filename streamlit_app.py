@@ -54,7 +54,8 @@ st.text("The fruit load list contains:")
 #st.text(my_data_row)
 st.dataframe(my_data_row)
 st.text("What fruit would you like to add?")
-fruits_add = st.multiselect("Fruits to add",list(list(my_data_row.iloc[:,0])),['banana'])
+fruits_add = st.multiselect('Enter your furit wish to add,'jackfruit')
 #my_data_row = my_data_row.loc[fruits_add]
-my_data_row=my_data_row[my_data_row['FRUIT_NAME'].isin([fruits_add])]
-st.dataframe(fruits_add)
+#my_data_row=my_data_row[my_data_row['FRUIT_NAME'].isin([fruits_add])]
+st.text('Thanks for adding the fruit!',fruits_add)
+#st.dataframe(fruits_add)
