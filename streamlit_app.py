@@ -8,7 +8,10 @@ import snowflake.connector
 def sf_connect():
      my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
      return my_cnx
-
+def page_refresh():
+     my_cnx = sf_connect()
+     my_cur=my_cnx.cursor()
+     my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values('from strealimit')")
 #step1 learning..
 st.title('My Parents New Healthy Dinner')
 st.header('Breakfast Menu')
@@ -45,6 +48,7 @@ fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 st.dataframe(fruityvice_normalized)
 
 #my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
+page_refresh()
 my_cnx=sf_connect()
 #my_cur = my_cnx.cursor()
 #my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
