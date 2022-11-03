@@ -11,7 +11,7 @@ def sf_connect():
 def page_refresh():
      my_cnx = sf_connect()
      my_cur=my_cnx.cursor()
-     my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values('from strealimit')")
+     my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values(select 'from strealimit')")
 #step1 learning..
 st.title('My Parents New Healthy Dinner')
 st.header('Breakfast Menu')
