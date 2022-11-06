@@ -1,4 +1,8 @@
 
+#creat the gitgup repo and code 
+#login to https://streamlit.io/ and create the application link to the gitgub repo. 
+#next run the application  ( deploy the apolicaiton, it will automatically taken care of all o ther dependencies)
+# once you modify the code, refres the streamlit.ip/page .
 import streamlit as st
 import pandas as pd
 import requests
