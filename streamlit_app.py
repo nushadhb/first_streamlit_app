@@ -10,7 +10,8 @@ import snowflake.connector
 from urllib.error import URLError
 
 #declare common varibales
-fruit_table=st.secrets["db"]["fruit_table"]
+db_details==st.secrets["db"]
+fruit_table=st.db_details["fruit_table"]
 st.text(fruit_table)
 exit(0)
 def sf_connect():
