@@ -31,7 +31,7 @@ def  get_fruityvice_data(this_fruit_choice):
 def insert_row_snowflake(new_fruit):
      my_cnx = sf_connect()
      my_cur = my_cnx.cursor()
-     sql_insert="insert into pc_rivery_db.public."  +  db_details["db_name"] + "." + db_details["schema_name"] + "." + db_details["fruit_table"] + " values('" + new_fruit +"')"
+     sql_insert="insert into "  +  db_details["db_name"] + "." + db_details["schema_name"] + "." + db_details["fruit_table"] + " values('" + new_fruit +"')"
      st.text(sql_insert)
      my_cur.execute(sql_insert)
      my_cur.close()
