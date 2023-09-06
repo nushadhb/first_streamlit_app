@@ -33,7 +33,7 @@ def insert_row_snowflake(new_fruit):
      return "thanks for adding new fruit " + new_fruit
 def get_the_fruit_load_list():
     my_cnx=sf_connect()
-    sql_query="select * from pc_rivery_db.public.fruit_load_list"
+    sql_query="select * from pc_rivery_db.public.fruit_load_list_old;"
     #my_cur.execute("select * from pc_rivery_db.public.fruit_load_list_old")
     with my_cnx as sf_conn:
         my_data_row=pd.read_sql(sql_query,sf_conn)
