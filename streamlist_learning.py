@@ -10,3 +10,4 @@ st.latex(r'''
     a \left(\frac{1-r^{n}}{1-r}\right)
     ''')
 st.slider("This is a slider", 0, 100, (25, 75))
+st.divider()
