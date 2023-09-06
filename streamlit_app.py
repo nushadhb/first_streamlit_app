@@ -28,7 +28,7 @@ def  get_fruityvice_data(this_fruit_choice):
 def insert_row_snowflake(new_fruit):
      my_cnx = sf_connect()
      my_cur = my_cnx.cursor()
-     my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values('" + new_fruit +"')")
+     my_cur.execute("insert into pc_rivery_db.public.fruit_load_list_old values('" + new_fruit +"')")
      my_cur.close()
      return "thanks for adding new fruit " + new_fruit
 def get_the_fruit_load_list():
