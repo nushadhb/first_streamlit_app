@@ -11,6 +11,7 @@ from urllib.error import URLError
 
 #declare common varibales
 db_details=st.secrets["db"]    
+st.text(db_details["table_name"])
 def sf_connect():
      my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
      return my_cnx
@@ -34,7 +35,7 @@ def insert_row_snowflake(new_fruit):
      return "thanks for adding new fruit " + new_fruit
 def get_the_fruit_load_list():
     my_cnx=sf_connect()
-    sql_query="select * from " + db_details["db_name"] + "." + db_details["schema_name"] + "." + db_details["table_name"] + ";"
+    sql_query="select * from " + db_details["db_name"] + "." + db_details["schema_name"] + "." + db_details["table_name"]  + ";"
     #my_cur.execute("select * from pc_rivery_db.public.fruit_load_list_old")
     with my_cnx as sf_conn:
         my_data_row=pd.read_sql(sql_query,sf_conn)
