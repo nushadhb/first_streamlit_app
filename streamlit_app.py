@@ -40,7 +40,7 @@ def get_the_fruit_load_list():
     return my_data_row
 
 #step1 learning..
-st.title('My Parents New Healthy Dinner')
+st.title('My Parents New Healthy Dinner!!!')
 st.header('Breakfast Menu')
 st.text('🥣 Omega 3 & Blueberry Oatmeal')
 st.text('🥗 Kale, Spinach & Rocket Smoothies')
