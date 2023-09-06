@@ -32,16 +32,17 @@ def insert_row_snowflake(new_fruit):
      my_cnx = sf_connect()
      my_cur = my_cnx.cursor()
      sql_insert="insert into "  +  db_details["db_name"] + "." + db_details["schema_name"] + "." + db_details["fruit_table"] + " values('" + new_fruit +"')"
-     st.text(sql_insert)
+     st.write(sql_insert)
      my_cur.execute(sql_insert)
      my_cur.close()
      return "thanks for adding new fruit " + new_fruit
 def get_the_fruit_load_list():
     my_cnx=sf_connect()
-    sql_query="select * from " + db_details["db_name"] + "." + db_details["schema_name"] + "." + db_details["fruit_table"]  + ";"
+    sql_select="select * from " + db_details["db_name"] + "." + db_details["schema_name"] + "." + db_details["fruit_table"]  + ";"
     #my_cur.execute("select * from pc_rivery_db.public.fruit_load_list_old")
     with my_cnx as sf_conn:
-        my_data_row=pd.read_sql(sql_query,sf_conn)
+         st.write(sql_select)
+        my_data_row=pd.read_sql(sql_select,sf_conn)
     return my_data_row
 
 #step1 learning..
