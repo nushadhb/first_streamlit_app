@@ -16,7 +16,7 @@ def sf_connect():
 def page_refresh():
      my_cnx = sf_connect()
      my_cur=my_cnx.cursor()
-     my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values('from strealimit')")
+     my_cur.execute("insert into pc_rivery_db.public.fruit_load_list_old values('from strealimit')")
 def  get_fruityvice_data(this_fruit_choice):
      fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_choice)
      #fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
