@@ -11,3 +11,4 @@ st.latex(r'''
     ''')
 st.slider("This is a slider", 0, 100, (25, 75))
 st.divider()
+naushad baig
