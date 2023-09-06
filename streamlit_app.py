@@ -10,17 +10,14 @@ import snowflake.connector
 from urllib.error import URLError
 
 #declare common varibales
-db_details=st.secrets["db"]
-fruit_table=db_details["fruit_table"]
-st.text(fruit_table)
-exit(0)
+db_details=st.secrets["db"]    
 def sf_connect():
      my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
      return my_cnx
 def page_refresh():
      my_cnx = sf_connect()
      my_cur=my_cnx.cursor()
-     my_cur.execute("insert into pc_rivery_db.public.fruit_load_list_old values('from strealimit')")
+     my_cur.execute("insert into pc_rivery_db.public." + db_details["table_name"] + "values('from strealimit')")
 def  get_fruityvice_data(this_fruit_choice):
      fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_choice)
      #fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
@@ -32,12 +29,12 @@ def  get_fruityvice_data(this_fruit_choice):
 def insert_row_snowflake(new_fruit):
      my_cnx = sf_connect()
      my_cur = my_cnx.cursor()
-     my_cur.execute("insert into pc_rivery_db.public.fruit_load_list_old values('" + new_fruit +"')")
+     my_cur.execute("insert into pc_rivery_db.public."  +  db_details["db_name"] + "." + db_details["schema_name"] + "." + db_details["table_name"] + " values('" + new_fruit +"')")
      my_cur.close()
      return "thanks for adding new fruit " + new_fruit
 def get_the_fruit_load_list():
     my_cnx=sf_connect()
-    sql_query="select * from pc_rivery_db.public.fruit_load_list_old;"
+    sql_query="select * from " + db_details["db_name"] + "." + db_details["schema_name"] + "." + db_details["table_name"] + ";"
     #my_cur.execute("select * from pc_rivery_db.public.fruit_load_list_old")
     with my_cnx as sf_conn:
         my_data_row=pd.read_sql(sql_query,sf_conn)
