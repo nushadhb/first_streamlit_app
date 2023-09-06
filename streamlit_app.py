@@ -11,6 +11,7 @@ from urllib.error import URLError
 
 #declare common varibales
 db_details=st.secrets["db"]    
+st.text(db_details)
 st.text(db_details["table_name"])
 def sf_connect():
      my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
