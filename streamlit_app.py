@@ -41,7 +41,7 @@ def get_the_fruit_load_list():
     sql_select="select * from " + db_details["db_name"] + "." + db_details["schema_name"] + "." + db_details["fruit_table"]  + ";"
     #my_cur.execute("select * from pc_rivery_db.public.fruit_load_list_old")
     with my_cnx as sf_conn:
-         st.write(sql_select)
+        st.write(sql_select)
         my_data_row=pd.read_sql(sql_select,sf_conn)
     return my_data_row
 
